@@ -1,0 +1,27 @@
+﻿@model CRUDAppUsingASPCoreWebAPI.Models.Student
+@{
+    ViewData["Title"] = "Create Student";
+}
+
+<h2>Create New Student</h2>
+
+<form asp-action="Create" method="post">
+    <div class="mb-3">
+        <label>Name</label>
+        <input asp-for="name" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label>Gender</label>
+        <input asp-for="gender" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label>Age</label>
+        <input asp-for="age" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label>Address</label>
+        <input asp-for="address" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-success">Submit</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

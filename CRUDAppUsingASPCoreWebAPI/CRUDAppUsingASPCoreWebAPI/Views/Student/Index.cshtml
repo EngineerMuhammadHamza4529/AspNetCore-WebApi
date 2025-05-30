@@ -1,0 +1,43 @@
+﻿@model IEnumerable<CRUDAppUsingASPCoreWebAPI.Models.Student>
+@{
+    ViewData["Title"] = "Student List";
+}
+
+<h2>Student List</h2>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">@TempData["Message"]</div>
+}
+
+<a asp-action="Create" class="btn btn-primary mb-3">Add Student</a>
+
+<table class="table table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Age</th>
+            <th>Address</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var s in Model)
+        {
+            <tr>
+                <td>@s.id</td>
+                <td>@s.name</td>
+                <td>@s.gender</td>
+                <td>@s.age</td>
+                <td>@s.address</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@s.id" class="btn btn-sm btn-warning">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@s.id" class="btn btn-sm btn-danger"
+                       onclick="return confirm('Are you sure to delete this student?');">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
